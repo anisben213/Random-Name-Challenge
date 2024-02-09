@@ -20,6 +20,10 @@ function genRandom() {
   const index = Math.floor(Math.random()*names.length);
   return names[index].toUpperCase();
 };
+document.getElementById('generateBtn').addEventListener('click', function() {
+  const name = genRandom();
+  document.getElementById('nameGen').textContent = name;
+});
 
 app.get('/Generator',(req,res)=>{
   fs.readFile(path.join(__dirname,'Generator.html'),'utf8',(err,data)=>{
